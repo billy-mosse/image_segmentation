@@ -14,7 +14,7 @@ using namespace std;
 
 typedef unordered_map<int,int> neighborhood;
 
-typedef tuple<int, int, int> edge;
+typedef tuple<int, int, double> edge;
 
 class Graph {
 
@@ -38,8 +38,8 @@ class Graph {
 
         const neighborhood getNeighbors(int src);
 
-        void addEdge(int src, int dst, int w);
-        void addEdgeIfNotAlready(int src, int dst, int w);
+        void addEdge(int src, int dst, double w);
+        void addEdgeIfNotAlready(int src, int dst, double w);
 
         int weight(int src, int dst);
 
@@ -48,6 +48,14 @@ class Graph {
         int getSizeEdges();
 
         void ordenar();
+
+        int getAmountNodes();
+
+        int getAmountEdges();
+
+
+        vector<edge> getEdges();
+
 };
 
 #endif

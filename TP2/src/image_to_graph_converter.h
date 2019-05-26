@@ -1,5 +1,5 @@
-#ifndef _input_handler 
-#define _input_handler
+#ifndef _image_to_graph_converter 
+#define _image_to_graph_converter
 
 #include <iostream>
 #include <fstream>
@@ -8,9 +8,6 @@
 #include "graph.h"
 
 using namespace std;
-
-typedef unsigned int pixel;
-typedef vector<vector<pixel> > image;
 
 Graph converter8neighbors(vector<vector<int> > & image, int width, int height);
 

@@ -1,18 +1,17 @@
+#include <stdio.h>
 #include <cassert>
 #include <vector>
 #include <utility>
 #include <iostream>
-#include <stdio.h>
+#include <string>
+#include <numeric>
+
 #include "arreglo_rep.hpp"
 #include "arbol_rep.hpp"
 #include "arbol_comp.hpp"
 #include "graph.h"
-
 #include "image_to_graph_converter.h"
-
-
-#include <string>
-#include <numeric>
+#include "inputHandler.h"
 
 using namespace std;
 
@@ -101,10 +100,37 @@ void testConverter8neighbors()
 
     assert(graph.getSizeEdges() == 20);
 
-    graph.showGraphEdges();
+   // graph.showGraphEdges();
 
     cout << "converter 8 neighbors OK" << endl;
 }
+
+
+void testConverterEuclidean()
+{
+    cout << "testing converter euclidean..." << endl;
+
+    vector<vector<int> > image(3,vector<int>(3,1));
+
+    int width = 3;
+    int height = 3;
+
+    Graph graph = converterEuclidean(image, width, height);
+
+    //X X X
+    //X X X
+    //X X X
+
+    //1+1+2+4+3+2+4+3 = 20
+
+    //graph.showGraphEdges();
+    //assert(graph.getSizeEdges() == 20);
+
+    //graph.showGraphEdges();
+
+    cout << "converter 8 neighbors OK" << endl;
+}
+
 
 void testGraph()
 {
@@ -116,11 +142,28 @@ void testGraph()
 
 }
 
+void testInputFile()
+{
+    vector<vector<int> > image = imageFromFile("image1.txt");
+
+    assert(image.size() == 3);
+    for(auto vec : image)
+    {
+        assert(vec.size() == 3);
+        for(auto elt : vec)
+        {
+            assert(elt == 1);
+        }
+    }    
+}
+
 int main(){
     testArregloRep();
     testArbolRep();
     testArbolComp();
     testGraph();
     testConverter8neighbors();
+    testConverterEuclidean();
+    testInputFile();
 	cout<<"all ok"<<endl;
 }

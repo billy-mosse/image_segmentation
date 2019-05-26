@@ -4,7 +4,7 @@
 Graph::Graph(int N){
 	n = N;
 	is_digraph = false;
-    vector<tuple<int, int, int> > edges;
+    vector<tuple<int, int, double> > edges;
 }
 
 
@@ -34,14 +34,28 @@ const neighborhood Graph::getNeighbors(int src){
 	return neighbors[src];
 }
 
-void Graph::addEdge(int src, int dst, int w){
+void Graph::addEdge(int src, int dst, double w){
 	validateVertices(src, dst);
 
 	edges.push_back(make_tuple(src, dst, w));
 
 }
 
-void Graph::addEdgeIfNotAlready(int src, int dst, int w){
+int Graph::getAmountNodes(){
+	return n;
+}
+
+int Graph::getAmountEdges(){
+	return edges.size();
+}
+
+void Graph::addEdgeIfNotAlready(int src, int dst, double w){
+
+	//cout << src << endl;
+	//cout << dst << endl;
+	//cout << w << endl;
+	//cout << n << endl;
+
 	validateVertices(src, dst);
 
 	bool found = false;
@@ -62,7 +76,7 @@ int Graph::weight(int src, int dst){
 	validateVertices(src, dst);
 	neighborhood hood = neighbors[src];
 	auto it = hood.find(dst);
-	int w = (*it).second;
+	double w = (*it).second;
 	return w;
 }
 
@@ -81,6 +95,11 @@ void Graph::showGraph(){
 int Graph::getSizeEdges()
 {
 	return edges.size();
+}
+
+vector<edge> Graph::getEdges()
+{
+	return edges;
 }
 
 

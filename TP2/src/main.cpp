@@ -1,11 +1,5 @@
 #include <vector>
 #include <tuple>
-#include "arreglo_rep.hpp"
-
-#include "disjoint_set.hpp"
-#include "arbol_rep.hpp"
-#include "arbol_comp.hpp"
-#include "arreglo_rep.hpp"
 
 #include <utility>
 #include <vector>
@@ -13,8 +7,18 @@
 #include <algorithm> //for max
 #include <map> // map
 #include <math.h> // pow
-
 #include <iostream>
+
+#include "arreglo_rep.hpp"
+#include "disjoint_set.hpp"
+#include "arbol_rep.hpp"
+#include "arbol_comp.hpp"
+#include "arreglo_rep.hpp"
+#include "inputHandler.h"
+
+#include "image_to_graph_converter.h"
+
+#include "graph.h"
 
 
 //UNION FIND, ARREGLO DE REPRESENTACIÓN
@@ -22,7 +26,7 @@
 using namespace std;
 
 
-//Represento el grafo como lista de aristas, siendo estas triplas <int, int, int>
+//Represento el grafo como lista de aristas, siendo estas triplas <int, int, double>
 //en que los primeros dos valores son los vértices que evaluamos y el último es
 //el peso del vértice.
 
@@ -30,7 +34,7 @@ using namespace std;
 //y su tamaño (el tamaño, salvo en el arreglo de representación, ya lo tengo almacenado)
 //en la raíz del árbol.
 
-vector<tuple<int, int, int>> listaAristas; // asumo que esta es la
+vector<tuple<int, int, double>> listaAristas; // asumo que esta es la
 //lista de aristas que mencioné.
 
 typedef vector<tuple<int, int>> infoComponentes;
@@ -49,13 +53,8 @@ infoComponentes inicializarinfoComponentes(int n){ //Acá hay una duda, cómo se
 	return res;
 }
 
-int main()
-{
-	return 0;
-}
 
-
-vector<vector<int>> algoritmo(int k, int n, int estructura){ //quizás una referencia a la lista de aristas, no sé
+vector<vector<int>> algoritmo(int k, int n, int estructura, Graph graph){ //quizás una referencia a la lista de aristas, no sé
 	/*
 	El parámetro estructura determina cómo se implementa la estructura disjoint set:
 	0-> Arreglo de representación
@@ -66,6 +65,9 @@ vector<vector<int>> algoritmo(int k, int n, int estructura){ //quizás una refer
 	//EL ALGORITMO SUPONE UNA VARIABLE GLOBAL listaAristas. HAY QUE MODIFICARLO PARA QUE TOME NUESTRA
 	//ESTRUCTURA GRAFO. -> CÓMO SE LE PASA POR PARÁMETRO AL ALGORITMO, CÓMO SE IMPLEMENTA LA FUNCIÓN ORDENAR,
 	//Y CÓMO SE ACCEDE AL ELEMENTO i DE LA LISTA UNA VEZ ORDENADA (línea 86)
+
+
+	listaAristas = graph.getEdges();
 
 	DisjointSet disjset;
 
@@ -81,7 +83,7 @@ vector<vector<int>> algoritmo(int k, int n, int estructura){ //quizás una refer
 	infoComponentes info = inicializarinfoComponentes(n);
 
 	for(int i = 0; i < listaAristas.size(); i++){
-		tuple<int, int, int> elem = listaAristas[i];
+		tuple<int, int, double> elem = listaAristas[i];
 		int v1 = get<0>(elem);
 		int v2 = get<1>(elem);
 		int c1 = disjset.find(v1); //Acá find es algún find de union find.
@@ -101,7 +103,6 @@ vector<vector<int>> algoritmo(int k, int n, int estructura){ //quizás una refer
 			disjset.unite(c1, c2); //con la estructura unite.
 		}
 	}
-
 	
 	//devolve la bolsa
 	int width = -1;
@@ -116,4 +117,21 @@ vector<vector<int>> algoritmo(int k, int n, int estructura){ //quizás una refer
 		res.push_back(fila);
 	}
 	return res;
+}
+
+
+int main()
+{
+	int width;
+    int height;
+    cin >> width;
+    cin >> height;
+
+	vector<vector<int>> image = imageFromFile("image1.txt");
+	
+	Graph graph = converter8neighbors(image, width, height);
+
+	vector<vector<int>> result = algoritmo(graph.getAmountNodes(), graph.getAmountEdges(), 0, graph);
+
+	return 0;
 }
