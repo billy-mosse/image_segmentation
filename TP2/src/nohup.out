@@ -1,0 +1,22 @@
+Initializing nautilus-dropbox 2015.10.28
+Nautilus-Share-Message: 18:01:41.626: Called "net usershare info" but it failed: Failed to execute child process “net” (No such file or directory)
+
+(nautilus:9539): GLib-GObject-WARNING **: 18:25:28.026: invalid uninstantiatable type '-g-type-private--IFaceHolder' in cast to 'GObject'
+
+(nautilus:9539): GLib-GObject-CRITICAL **: 18:25:28.026: g_object_notify: assertion 'G_IS_OBJECT (object)' failed
+
+(nautilus:9539): GLib-GObject-WARNING **: 18:25:28.027: invalid uninstantiatable type '(null)' in cast to 'GObject'
+
+(nautilus:9539): GLib-GObject-CRITICAL **: 18:25:28.028: g_object_notify: assertion 'G_IS_OBJECT (object)' failed
+
+(nautilus:9539): GLib-GObject-WARNING **: 18:25:28.028: invalid uninstantiatable type '(null)' in cast to 'GObject'
+
+(nautilus:9539): GLib-GObject-CRITICAL **: 18:25:28.028: g_object_notify: assertion 'G_IS_OBJECT (object)' failed
+
+(nautilus:9539): GLib-GObject-WARNING **: 18:25:28.028: invalid uninstantiatable type '(null)' in cast to 'GObject'
+
+(nautilus:9539): GLib-GObject-CRITICAL **: 18:25:28.029: g_object_notify: assertion 'G_IS_OBJECT (object)' failed
+
+(nautilus:9539): GLib-GObject-WARNING **: 18:25:28.029: invalid uninstantiatable type '(null)' in cast to 'GObject'
+
+(nautilus:9539): GLib-GObject-CRITICAL **: 18:25:28.030: g_object_notify: assertion 'G_IS_OBJECT (object)' failed

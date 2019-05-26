@@ -1,0 +1,578 @@
+g++ inputHandler.cpp imageToGraphConverter.cpp main.cpp -o ./main
+In file included from /usr/include/c++/7/ios:40:0,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/char_traits.h:103:33: error: ‘bool’ is not a template
+       static _GLIBCXX_CONSTEXPR bool
+                                 ^~~~
+/usr/include/c++/7/bits/char_traits.h:104:10: error: expected primary-expression before ‘const’
+       lt(const char_type& __c1, const char_type& __c2)
+          ^~~~~
+/usr/include/c++/7/bits/char_traits.h:104:10: error: expected ‘)’ before ‘const’
+/usr/include/c++/7/bits/char_traits.h:107:7: error: expected ‘>’ before ‘static’
+       static _GLIBCXX14_CONSTEXPR int
+       ^~~~~~
+/usr/include/c++/7/bits/char_traits.h:108:76: error: declaration does not declare anything [-fpermissive]
+       compare(const char_type* __s1, const char_type* __s2, std::size_t __n);
+                                                                            ^
+/usr/include/c++/7/bits/char_traits.h:149:74: error: no ‘constexpr int __gnu_cxx::char_traits<_CharT>::compare(const char_type*, const char_type*, std::size_t)’ member function declared in class ‘__gnu_cxx::char_traits<_CharT>’
+     compare(const char_type* __s1, const char_type* __s2, std::size_t __n)
+                                                                          ^
+/usr/include/c++/7/bits/char_traits.h:291:33: error: ‘bool’ is not a template
+       static _GLIBCXX_CONSTEXPR bool
+                                 ^~~~
+/usr/include/c++/7/bits/char_traits.h:292:10: error: expected primary-expression before ‘const’
+       lt(const char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+          ^~~~~
+/usr/include/c++/7/bits/char_traits.h:292:10: error: expected ‘)’ before ‘const’
+/usr/include/c++/7/bits/char_traits.h:299:7: error: expected ‘>’ before ‘static’
+       static _GLIBCXX17_CONSTEXPR int
+       ^~~~~~
+/usr/include/c++/7/bits/char_traits.h:301:7: error: expected unqualified-id before ‘{’ token
+       {
+       ^
+/usr/include/c++/7/bits/char_traits.h:404:33: error: ‘bool’ is not a template
+       static _GLIBCXX_CONSTEXPR bool
+                                 ^~~~
+/usr/include/c++/7/bits/char_traits.h:405:10: error: expected primary-expression before ‘const’
+       lt(const char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+          ^~~~~
+/usr/include/c++/7/bits/char_traits.h:405:10: error: expected ‘)’ before ‘const’
+/usr/include/c++/7/bits/char_traits.h:408:7: error: expected ‘>’ before ‘static’
+       static _GLIBCXX17_CONSTEXPR int
+       ^~~~~~
+/usr/include/c++/7/bits/char_traits.h:410:7: error: expected unqualified-id before ‘{’ token
+       {
+       ^
+In file included from /usr/include/c++/7/ios:40:0,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/char_traits.h:524:24: error: ‘bool’ is not a template
+       static constexpr bool
+                        ^~~~
+/usr/include/c++/7/bits/char_traits.h:525:10: error: expected primary-expression before ‘const’
+       lt(const char_type& __c1, const char_type& __c2) noexcept
+          ^~~~~
+/usr/include/c++/7/bits/char_traits.h:525:10: error: expected ‘)’ before ‘const’
+/usr/include/c++/7/bits/char_traits.h:528:7: error: expected ‘>’ before ‘static’
+       static _GLIBCXX17_CONSTEXPR int
+       ^~~~~~
+/usr/include/c++/7/bits/char_traits.h:530:7: error: expected unqualified-id before ‘{’ token
+       {
+       ^
+/usr/include/c++/7/bits/char_traits.h:621:24: error: ‘bool’ is not a template
+       static constexpr bool
+                        ^~~~
+/usr/include/c++/7/bits/char_traits.h:622:10: error: expected primary-expression before ‘const’
+       lt(const char_type& __c1, const char_type& __c2) noexcept
+          ^~~~~
+/usr/include/c++/7/bits/char_traits.h:622:10: error: expected ‘)’ before ‘const’
+/usr/include/c++/7/bits/char_traits.h:625:7: error: expected ‘>’ before ‘static’
+       static _GLIBCXX17_CONSTEXPR int
+       ^~~~~~
+/usr/include/c++/7/bits/char_traits.h:627:7: error: expected unqualified-id before ‘{’ token
+       {
+       ^
+In file included from imageToGraphConverter.cpp:2:0:
+graph.h:12:9: error: ‘unordered_map’ does not name a type
+ typedef unordered_map<int,int> neighborhood;
+         ^~~~~~~~~~~~~
+graph.h:21:5: error: ‘unordered_map’ does not name a type
+     unordered_map<int, neighborhood > neighbors;
+     ^~~~~~~~~~~~~
+graph.h:32:22: error: ‘unordered_map’ has not been declared
+         Graph(int N, unordered_map<int, neighborhood> hood);
+                      ^~~~~~~~~~~~~
+graph.h:32:35: error: expected ‘,’ or ‘...’ before ‘<’ token
+         Graph(int N, unordered_map<int, neighborhood> hood);
+                                   ^
+graph.h:34:22: error: ‘unordered_map’ has not been declared
+         Graph(int N, unordered_map<int, neighborhood> hood, bool digraph);
+                      ^~~~~~~~~~~~~
+graph.h:34:35: error: expected ‘,’ or ‘...’ before ‘<’ token
+         Graph(int N, unordered_map<int, neighborhood> hood, bool digraph);
+                                   ^
+graph.h:34:9: error: ‘Graph::Graph(int, int)’ cannot be overloaded
+         Graph(int N, unordered_map<int, neighborhood> hood, bool digraph);
+         ^~~~~
+graph.h:32:9: error: with ‘Graph::Graph(int, int)’
+         Graph(int N, unordered_map<int, neighborhood> hood);
+         ^~~~~
+graph.h:36:15: error: ‘neighborhood’ does not name a type
+         const neighborhood getNeighbors(int src);
+               ^~~~~~~~~~~~
+imageToGraphConverter.cpp: In function ‘std::vector<std::tuple<int, int, int> > addNeighbors(std::vector<std::vector<int> >, int, int, int, int, int, int)’:
+imageToGraphConverter.cpp:56:79: error: invalid use of incomplete type ‘class std::tuple<int, int, int>’
+  vector<tuple<int, int, int>> res(k, tuple<int, int, int>(-1, -1, max_distance)); //LLENARLO CON K ELEMENTOS QUE PESEN MUCHO
+                                                                               ^
+In file included from /usr/include/c++/7/bits/move.h:54:0,
+                 from /usr/include/c++/7/bits/nested_exception.h:40,
+                 from /usr/include/c++/7/exception:143,
+                 from /usr/include/c++/7/ios:39,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/type_traits:2555:11: note: declaration of ‘class std::tuple<int, int, int>’
+     class tuple;
+           ^~~~~
+imageToGraphConverter.cpp:64:24: error: no matching function for call to ‘get<2>(__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type&)’
+    if(w < get<2>(res[0]))
+                        ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:225:5: note: candidate: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^~~
+/usr/include/c++/7/utility:225:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:64:24: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘std::pair<_Tp1, _Tp2>’
+    if(w < get<2>(res[0]))
+                        ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:230:5: note: candidate: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^~~
+/usr/include/c++/7/utility:230:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:64:24: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘std::pair<_Tp1, _Tp2>’
+    if(w < get<2>(res[0]))
+                        ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:235:5: note: candidate: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^~~
+/usr/include/c++/7/utility:235:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:64:24: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘const std::pair<_Tp1, _Tp2>’
+    if(w < get<2>(res[0]))
+                        ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:244:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_T1, _T2>&)
+     get(pair<_Tp, _Up>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:244:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:249:5: note: candidate: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_T1, _T2>&)
+     get(const pair<_Tp, _Up>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:249:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:254:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_T1, _T2>&&)
+     get(pair<_Tp, _Up>&& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:254:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:259:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_Up, _Tp>&)
+     get(pair<_Up, _Tp>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:259:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:264:5: note: candidate: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_Up, _Tp>&)
+     get(const pair<_Up, _Tp>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:264:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:269:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_Up, _Tp>&&)
+     get(pair<_Up, _Tp>&& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:269:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:68:28: error: variable ‘std::tuple<int, int, int> t’ has initializer but incomplete type
+     tuple<int, int, int> t(src, target, w);
+                            ^~~
+imageToGraphConverter.cpp:72:27: error: no matching function for call to ‘get<2>(__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type&)’
+      if(get<2>(res.at(l-1)) lt get<2>(res.at(l)))
+                           ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:225:5: note: candidate: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^~~
+/usr/include/c++/7/utility:225:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:72:27: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘std::pair<_Tp1, _Tp2>’
+      if(get<2>(res.at(l-1)) lt get<2>(res.at(l)))
+                           ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:230:5: note: candidate: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^~~
+/usr/include/c++/7/utility:230:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:72:27: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘std::pair<_Tp1, _Tp2>’
+      if(get<2>(res.at(l-1)) lt get<2>(res.at(l)))
+                           ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:235:5: note: candidate: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^~~
+/usr/include/c++/7/utility:235:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:72:27: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘const std::pair<_Tp1, _Tp2>’
+      if(get<2>(res.at(l-1)) lt get<2>(res.at(l)))
+                           ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:244:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_T1, _T2>&)
+     get(pair<_Tp, _Up>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:244:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:249:5: note: candidate: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_T1, _T2>&)
+     get(const pair<_Tp, _Up>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:249:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:254:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_T1, _T2>&&)
+     get(pair<_Tp, _Up>&& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:254:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:259:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_Up, _Tp>&)
+     get(pair<_Up, _Tp>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:259:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:264:5: note: candidate: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_Up, _Tp>&)
+     get(const pair<_Up, _Tp>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:264:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:269:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_Up, _Tp>&&)
+     get(pair<_Up, _Tp>&& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:269:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:72:48: error: no matching function for call to ‘get<2>(__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type&)’
+      if(get<2>(res.at(l-1)) lt get<2>(res.at(l)))
+                                                ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:225:5: note: candidate: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(std::pair<_Tp1, _Tp2>&)
+     get(std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^~~
+/usr/include/c++/7/utility:225:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:72:48: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘std::pair<_Tp1, _Tp2>’
+      if(get<2>(res.at(l-1)) lt get<2>(res.at(l)))
+                                                ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:230:5: note: candidate: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type&& std::get(std::pair<_Tp1, _Tp2>&&)
+     get(std::pair<_Tp1, _Tp2>&& __in) noexcept
+     ^~~
+/usr/include/c++/7/utility:230:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:72:48: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘std::pair<_Tp1, _Tp2>’
+      if(get<2>(res.at(l-1)) lt get<2>(res.at(l)))
+                                                ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:235:5: note: candidate: template<long unsigned int _Int, class _Tp1, class _Tp2> constexpr const typename std::tuple_element<_Int, std::pair<_Tp1, _Tp2> >::type& std::get(const std::pair<_Tp1, _Tp2>&)
+     get(const std::pair<_Tp1, _Tp2>& __in) noexcept
+     ^~~
+/usr/include/c++/7/utility:235:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:72:48: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘const std::pair<_Tp1, _Tp2>’
+      if(get<2>(res.at(l-1)) lt get<2>(res.at(l)))
+                                                ^
+In file included from graph.h:6:0,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/utility:244:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_T1, _T2>&)
+     get(pair<_Tp, _Up>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:244:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:249:5: note: candidate: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_T1, _T2>&)
+     get(const pair<_Tp, _Up>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:249:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:254:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_T1, _T2>&&)
+     get(pair<_Tp, _Up>&& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:254:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:259:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp& std::get(std::pair<_Up, _Tp>&)
+     get(pair<_Up, _Tp>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:259:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:264:5: note: candidate: template<class _Tp, class _Up> constexpr const _Tp& std::get(const std::pair<_Up, _Tp>&)
+     get(const pair<_Up, _Tp>& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:264:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/utility:269:5: note: candidate: template<class _Tp, class _Up> constexpr _Tp&& std::get(std::pair<_Up, _Tp>&&)
+     get(pair<_Up, _Tp>&& __p) noexcept
+     ^~~
+/usr/include/c++/7/utility:269:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:74:34: error: no matching function for call to ‘swap(__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type&, __gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type&)’
+       swap(res.at(l-1), res.at(l));
+                                  ^
+In file included from /usr/include/c++/7/bits/nested_exception.h:40:0,
+                 from /usr/include/c++/7/exception:143,
+                 from /usr/include/c++/7/ios:39,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/move.h:187:5: note: candidate: template<class _Tp> typename std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> >::value>::type std::swap(_Tp&, _Tp&)
+     swap(_Tp& __a, _Tp& __b)
+     ^~~~
+/usr/include/c++/7/bits/move.h:187:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/7/bits/move.h: In substitution of ‘template<class _Tp> typename std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> >::value>::type std::swap(_Tp&, _Tp&) [with _Tp = std::tuple<int, int, int>]’:
+imageToGraphConverter.cpp:74:34:   required from here
+/usr/include/c++/7/bits/move.h:187:5: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+/usr/include/c++/7/bits/move.h:210:5: note: candidate: template<class _Tp, long unsigned int _Nm> typename std::enable_if<std::__is_swappable<_Tp>::value>::type std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm])
+     swap(_Tp (&__a)[_Nm], _Tp (&__b)[_Nm])
+     ^~~~
+/usr/include/c++/7/bits/move.h:210:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:74:34: note:   mismatched types ‘_Tp [_Nm]’ and ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’
+       swap(res.at(l-1), res.at(l));
+                                  ^
+In file included from /usr/include/c++/7/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/7/bits/char_traits.h:39,
+                 from /usr/include/c++/7/ios:40,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_pair.h:490:5: note: candidate: template<class _T1, class _T2> typename std::enable_if<std::__and_<std::__is_swappable<_T1>, std::__is_swappable<_T2> >::value>::type std::swap(std::pair<_T1, _T2>&, std::pair<_T1, _T2>&)
+     swap(pair<_T1, _T2>& __x, pair<_T1, _T2>& __y)
+     ^~~~
+/usr/include/c++/7/bits/stl_pair.h:490:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:74:34: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘std::pair<_T1, _T2>’
+       swap(res.at(l-1), res.at(l));
+                                  ^
+In file included from /usr/include/c++/7/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/7/bits/char_traits.h:39,
+                 from /usr/include/c++/7/ios:40,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_pair.h:498:5: note: candidate: template<class _T1, class _T2> typename std::enable_if<(! std::__and_<std::__is_swappable<_T1>, std::__is_swappable<_T2> >::value)>::type std::swap(std::pair<_T1, _T2>&, std::pair<_T1, _T2>&) <deleted>
+     swap(pair<_T1, _T2>&, pair<_T1, _T2>&) = delete;
+     ^~~~
+/usr/include/c++/7/bits/stl_pair.h:498:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:74:34: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘std::pair<_T1, _T2>’
+       swap(res.at(l-1), res.at(l));
+                                  ^
+In file included from /usr/include/c++/7/string:52:0,
+                 from /usr/include/c++/7/bits/locale_classes.h:40,
+                 from /usr/include/c++/7/bits/ios_base.h:41,
+                 from /usr/include/c++/7/ios:42,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/basic_string.h:6237:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> void std::swap(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
+     swap(basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^~~~
+/usr/include/c++/7/bits/basic_string.h:6237:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:74:34: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+       swap(res.at(l-1), res.at(l));
+                                  ^
+In file included from /usr/include/c++/7/vector:64:0,
+                 from graph.h:5,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_vector.h:1644:5: note: candidate: template<class _Tp, class _Alloc> void std::swap(std::vector<_Tp, _Alloc>&, std::vector<_Tp, _Alloc>&)
+     swap(vector<_Tp, _Alloc>& __x, vector<_Tp, _Alloc>& __y)
+     ^~~~
+/usr/include/c++/7/bits/stl_vector.h:1644:5: note:   template argument deduction/substitution failed:
+imageToGraphConverter.cpp:74:34: note:   ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ is not derived from ‘std::vector<_Tp, _Alloc>’
+       swap(res.at(l-1), res.at(l));
+                                  ^
+In file included from /usr/include/c++/7/vector:65:0,
+                 from graph.h:5,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_bvector.h:112:3: note: candidate: void std::swap(std::_Bit_reference, std::_Bit_reference)
+   swap(_Bit_reference __x, _Bit_reference __y) noexcept
+   ^~~~
+/usr/include/c++/7/bits/stl_bvector.h:112:3: note:   no known conversion for argument 1 from ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ to ‘std::_Bit_reference’
+/usr/include/c++/7/bits/stl_bvector.h:120:3: note: candidate: void std::swap(std::_Bit_reference, bool&)
+   swap(_Bit_reference __x, bool& __y) noexcept
+   ^~~~
+/usr/include/c++/7/bits/stl_bvector.h:120:3: note:   no known conversion for argument 1 from ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ to ‘std::_Bit_reference’
+/usr/include/c++/7/bits/stl_bvector.h:128:3: note: candidate: void std::swap(bool&, std::_Bit_reference)
+   swap(bool& __x, _Bit_reference __y) noexcept
+   ^~~~
+/usr/include/c++/7/bits/stl_bvector.h:128:3: note:   no known conversion for argument 1 from ‘__gnu_cxx::__alloc_traits<std::allocator<std::tuple<int, int, int> > >::value_type {aka std::tuple<int, int, int>}’ to ‘bool&’
+imageToGraphConverter.cpp: In function ‘Graph converterEuclidean(std::vector<std::vector<int> >, int, int)’:
+imageToGraphConverter.cpp:100:13: error: ‘std::tuple<int, int, int> edge’ has incomplete type
+    for(auto edge: vecinos)
+             ^~~~
+In file included from /usr/include/c++/7/vector:64:0,
+                 from graph.h:5,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_vector.h: In instantiation of ‘std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >; std::vector<_Tp, _Alloc>::reference = std::tuple<int, int, int>&; std::vector<_Tp, _Alloc>::size_type = long unsigned int]’:
+imageToGraphConverter.cpp:64:23:   required from here
+/usr/include/c++/7/bits/stl_vector.h:798:34: error: invalid use of incomplete type ‘class std::tuple<int, int, int>’
+  return *(this->_M_impl._M_start + __n);
+          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from /usr/include/c++/7/bits/move.h:54:0,
+                 from /usr/include/c++/7/bits/nested_exception.h:40,
+                 from /usr/include/c++/7/exception:143,
+                 from /usr/include/c++/7/ios:39,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/type_traits:2555:11: note: declaration of ‘class std::tuple<int, int, int>’
+     class tuple;
+           ^~~~~
+In file included from /usr/include/c++/7/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/7/bits/char_traits.h:39,
+                 from /usr/include/c++/7/ios:40,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_iterator.h: In instantiation of ‘__gnu_cxx::__normal_iterator<_Iterator, _Container>& __gnu_cxx::__normal_iterator<_Iterator, _Container>::operator++() [with _Iterator = std::tuple<int, int, int>*; _Container = std::vector<std::tuple<int, int, int> >]’:
+imageToGraphConverter.cpp:100:19:   required from here
+/usr/include/c++/7/bits/stl_iterator.h:802:2: error: cannot increment a pointer to incomplete type ‘std::tuple<int, int, int>’
+  ++_M_current;
+  ^~~~~~~~~~~~
+In file included from /usr/include/c++/7/vector:64:0,
+                 from graph.h:5,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_vector.h: In instantiation of ‘std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >]’:
+/usr/include/c++/7/bits/stl_vector.h:435:33:   required from ‘std::vector<_Tp, _Alloc>::~vector() [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >]’
+graph.h:16:7:   required from here
+/usr/include/c++/7/bits/stl_vector.h:163:9: error: invalid use of incomplete type ‘class std::tuple<int, int, int>’
+       { _M_deallocate(this->_M_impl._M_start, this->_M_impl._M_end_of_storage
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         - this->_M_impl._M_start); }
+         ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/7/bits/move.h:54:0,
+                 from /usr/include/c++/7/bits/nested_exception.h:40,
+                 from /usr/include/c++/7/exception:143,
+                 from /usr/include/c++/7/ios:39,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/type_traits:2555:11: note: declaration of ‘class std::tuple<int, int, int>’
+     class tuple;
+           ^~~~~
+In file included from /usr/include/c++/7/vector:64:0,
+                 from graph.h:5,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_vector.h: In instantiation of ‘std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >; std::vector<_Tp, _Alloc>::size_type = long unsigned int]’:
+/usr/include/c++/7/bits/stl_vector.h:327:19:   required from ‘std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >]’
+graph.h:16:7:   required from here
+/usr/include/c++/7/bits/stl_vector.h:671:50: error: invalid use of incomplete type ‘class std::tuple<int, int, int>’
+       { return size_type(this->_M_impl._M_finish - this->_M_impl._M_start); }
+                          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/7/bits/move.h:54:0,
+                 from /usr/include/c++/7/bits/nested_exception.h:40,
+                 from /usr/include/c++/7/exception:143,
+                 from /usr/include/c++/7/ios:39,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/type_traits:2555:11: note: declaration of ‘class std::tuple<int, int, int>’
+     class tuple;
+           ^~~~~
+In file included from /usr/include/c++/7/vector:62:0,
+                 from graph.h:5,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_construct.h: In instantiation of ‘void std::_Destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = std::tuple<int, int, int>*]’:
+/usr/include/c++/7/bits/stl_construct.h:206:15:   required from ‘void std::_Destroy(_ForwardIterator, _ForwardIterator, std::allocator<_T2>&) [with _ForwardIterator = std::tuple<int, int, int>*; _Tp = std::tuple<int, int, int>]’
+/usr/include/c++/7/bits/stl_vector.h:434:22:   required from ‘std::vector<_Tp, _Alloc>::~vector() [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >]’
+graph.h:16:7:   required from here
+/usr/include/c++/7/bits/stl_construct.h:133:7: error: static assertion failed: value type is destructible
+       static_assert(is_destructible<_Value_type>::value,
+       ^~~~~~~~~~~~~
+/usr/include/c++/7/bits/stl_construct.h:137:11: error: invalid use of incomplete type ‘std::iterator_traits<std::tuple<int, int, int>*>::value_type {aka class std::tuple<int, int, int>}’
+       std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  __destroy(__first, __last);
+  ~~~~~~~~~^~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/7/bits/move.h:54:0,
+                 from /usr/include/c++/7/bits/nested_exception.h:40,
+                 from /usr/include/c++/7/exception:143,
+                 from /usr/include/c++/7/ios:39,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/type_traits:2555:11: note: declaration of ‘std::iterator_traits<std::tuple<int, int, int>*>::value_type {aka class std::tuple<int, int, int>}’
+     class tuple;
+           ^~~~~
+In file included from /usr/include/c++/7/vector:64:0,
+                 from graph.h:5,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_vector.h: In instantiation of ‘void std::_Vector_base<_Tp, _Alloc>::_M_create_storage(std::size_t) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >; std::size_t = long unsigned int]’:
+/usr/include/c++/7/bits/stl_vector.h:138:26:   required from ‘std::_Vector_base<_Tp, _Alloc>::_Vector_base(std::size_t, const allocator_type&) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >; std::size_t = long unsigned int; std::_Vector_base<_Tp, _Alloc>::allocator_type = std::allocator<std::tuple<int, int, int> >]’
+/usr/include/c++/7/bits/stl_vector.h:328:61:   required from ‘std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >]’
+graph.h:16:7:   required from here
+/usr/include/c++/7/bits/stl_vector.h:189:59: error: invalid use of incomplete type ‘class std::tuple<int, int, int>’
+  this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
+                                    ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /usr/include/c++/7/bits/move.h:54:0,
+                 from /usr/include/c++/7/bits/nested_exception.h:40,
+                 from /usr/include/c++/7/exception:143,
+                 from /usr/include/c++/7/ios:39,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/type_traits:2555:11: note: declaration of ‘class std::tuple<int, int, int>’
+     class tuple;
+           ^~~~~
+In file included from /usr/include/c++/7/vector:63:0,
+                 from graph.h:5,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_uninitialized.h: In instantiation of ‘_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const std::tuple<int, int, int>*, std::vector<std::tuple<int, int, int> > >; _ForwardIterator = std::tuple<int, int, int>*]’:
+/usr/include/c++/7/bits/stl_uninitialized.h:289:37:   required from ‘_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, std::allocator<_Tp>&) [with _InputIterator = __gnu_cxx::__normal_iterator<const std::tuple<int, int, int>*, std::vector<std::tuple<int, int, int> > >; _ForwardIterator = std::tuple<int, int, int>*; _Tp = std::tuple<int, int, int>]’
+/usr/include/c++/7/bits/stl_vector.h:331:31:   required from ‘std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >]’
+graph.h:16:7:   required from here
+/usr/include/c++/7/bits/stl_uninitialized.h:132:12: error: invalid use of incomplete type ‘std::__iterator_traits<__gnu_cxx::__normal_iterator<const std::tuple<int, int, int>*, std::vector<std::tuple<int, int, int> > >, void>::value_type {aka class std::tuple<int, int, int>}’
+            && __is_trivial(_ValueType2)
+In file included from /usr/include/c++/7/bits/move.h:54:0,
+                 from /usr/include/c++/7/bits/nested_exception.h:40,
+                 from /usr/include/c++/7/exception:143,
+                 from /usr/include/c++/7/ios:39,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/type_traits:2555:11: note: declaration of ‘std::__iterator_traits<__gnu_cxx::__normal_iterator<const std::tuple<int, int, int>*, std::vector<std::tuple<int, int, int> > >, void>::value_type {aka class std::tuple<int, int, int>}’
+     class tuple;
+           ^~~~~
+In file included from /usr/include/c++/7/vector:63:0,
+                 from graph.h:5,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/bits/stl_uninitialized.h:132:12: error: invalid use of incomplete type ‘std::iterator_traits<std::tuple<int, int, int>*>::value_type {aka class std::tuple<int, int, int>}’
+            && __is_trivial(_ValueType2)
+In file included from /usr/include/c++/7/bits/move.h:54:0,
+                 from /usr/include/c++/7/bits/nested_exception.h:40,
+                 from /usr/include/c++/7/exception:143,
+                 from /usr/include/c++/7/ios:39,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/type_traits:2555:11: note: declaration of ‘std::iterator_traits<std::tuple<int, int, int>*>::value_type {aka class std::tuple<int, int, int>}’
+     class tuple;
+           ^~~~~
+In file included from /usr/include/x86_64-linux-gnu/c++/7/bits/c++allocator.h:33:0,
+                 from /usr/include/c++/7/bits/allocator.h:46,
+                 from /usr/include/c++/7/string:41,
+                 from /usr/include/c++/7/bits/locale_classes.h:40,
+                 from /usr/include/c++/7/bits/ios_base.h:41,
+                 from /usr/include/c++/7/ios:42,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from graph.h:4,
+                 from imageToGraphConverter.cpp:2:
+/usr/include/c++/7/ext/new_allocator.h: In instantiation of ‘_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = std::tuple<int, int, int>; __gnu_cxx::new_allocator<_Tp>::pointer = std::tuple<int, int, int>*; __gnu_cxx::new_allocator<_Tp>::size_type = long unsigned int]’:
+/usr/include/c++/7/bits/alloc_traits.h:436:32:   required from ‘static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = std::tuple<int, int, int>; std::allocator_traits<std::allocator<_CharT> >::pointer = std::tuple<int, int, int>*; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<std::tuple<int, int, int> >; std::allocator_traits<std::allocator<_CharT> >::size_type = long unsigned int]’
+/usr/include/c++/7/bits/stl_vector.h:172:33:   required from ‘std::_Vector_base<_Tp, _Alloc>::pointer std::_Vector_base<_Tp, _Alloc>::_M_allocate(std::size_t) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >; std::_Vector_base<_Tp, _Alloc>::pointer = std::tuple<int, int, int>*; std::size_t = long unsigned int]’
+/usr/include/c++/7/bits/stl_vector.h:187:33:   required from ‘void std::_Vector_base<_Tp, _Alloc>::_M_create_storage(std::size_t) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >; std::size_t = long unsigned int]’
+/usr/include/c++/7/bits/stl_vector.h:138:26:   required from ‘std::_Vector_base<_Tp, _Alloc>::_Vector_base(std::size_t, const allocator_type&) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >; std::size_t = long unsigned int; std::_Vector_base<_Tp, _Alloc>::allocator_type = std::allocator<std::tuple<int, int, int> >]’
+/usr/include/c++/7/bits/stl_vector.h:328:61:   required from ‘std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >]’
+graph.h:16:7:   required from here
+/usr/include/c++/7/ext/new_allocator.h:111:54: error: invalid application of ‘sizeof’ to incomplete type ‘std::tuple<int, int, int>’
+  return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+                                                      ^
+/usr/include/c++/7/ext/new_allocator.h: In instantiation of ‘__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::max_size() const [with _Tp = std::tuple<int, int, int>; __gnu_cxx::new_allocator<_Tp>::size_type = long unsigned int]’:
+/usr/include/c++/7/ext/new_allocator.h:101:18:   required from ‘_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = std::tuple<int, int, int>; __gnu_cxx::new_allocator<_Tp>::pointer = std::tuple<int, int, int>*; __gnu_cxx::new_allocator<_Tp>::size_type = long unsigned int]’
+/usr/include/c++/7/bits/alloc_traits.h:436:32:   required from ‘static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = std::tuple<int, int, int>; std::allocator_traits<std::allocator<_CharT> >::pointer = std::tuple<int, int, int>*; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<std::tuple<int, int, int> >; std::allocator_traits<std::allocator<_CharT> >::size_type = long unsigned int]’
+/usr/include/c++/7/bits/stl_vector.h:172:33:   required from ‘std::_Vector_base<_Tp, _Alloc>::pointer std::_Vector_base<_Tp, _Alloc>::_M_allocate(std::size_t) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >; std::_Vector_base<_Tp, _Alloc>::pointer = std::tuple<int, int, int>*; std::size_t = long unsigned int]’
+/usr/include/c++/7/bits/stl_vector.h:187:33:   required from ‘void std::_Vector_base<_Tp, _Alloc>::_M_create_storage(std::size_t) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >; std::size_t = long unsigned int]’
+/usr/include/c++/7/bits/stl_vector.h:138:26:   required from ‘std::_Vector_base<_Tp, _Alloc>::_Vector_base(std::size_t, const allocator_type&) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >; std::size_t = long unsigned int; std::_Vector_base<_Tp, _Alloc>::allocator_type = std::allocator<std::tuple<int, int, int> >]’
+/usr/include/c++/7/bits/stl_vector.h:328:61:   required from ‘std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = std::tuple<int, int, int>; _Alloc = std::allocator<std::tuple<int, int, int> >]’
+graph.h:16:7:   required from here
+/usr/include/c++/7/ext/new_allocator.h:130:35: error: invalid application of ‘sizeof’ to incomplete type ‘std::tuple<int, int, int>’
+       { return size_t(-1) / sizeof(_Tp); }
+                                   ^
+Makefile:2: recipe for target 'make' failed
+make: *** [make] Error 1
