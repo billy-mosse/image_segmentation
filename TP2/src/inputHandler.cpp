@@ -1,8 +1,8 @@
 #include "inputHandler.h"
 
 vector<int> parseInputFile(char* inputPath){
-    double n;
-    int m;
+    int n;
+    double m;
     vector<int> numbers;
     ifstream inFile;
     inFile.open(inputPath);
@@ -11,9 +11,14 @@ vector<int> parseInputFile(char* inputPath){
         exit(1);
     }
 
-    while (inFile >> n) {
-        m = n;
-        numbers.push_back(m);
+    int count = 0;
+    while (inFile >> m) {
+        if(m==0)
+            count = count+1;
+    
+
+        n = m;
+        numbers.push_back(n);
     }
     inFile.close();
     return numbers;
@@ -46,7 +51,6 @@ vector<vector<int> > imageFromFile(char* inputPath){
     vector<int> numbers = parseInputFile(inputPath);
     int width = numbers[0];
     int height = numbers[1];
-
     vector<vector<int> > image = separateValues(numbers, width, height);
     return image;
 }
@@ -70,6 +74,7 @@ vector<vector<int> > imageFromInput(int width, int height){
         for(int j = 0; j < width; j++)
         {
             int p = numbers[imagePosStart + j];
+            //cout<<p<<endl;
             row.push_back(p);
         }
         image.push_back(row);

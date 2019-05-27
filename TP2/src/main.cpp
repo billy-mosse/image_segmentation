@@ -54,7 +54,7 @@ infoComponentes inicializarinfoComponentes(int n){ //Acá hay una duda, cómo se
 }
 
 
-vector<vector<int>> algoritmo(int k, int n, int estructura, Graph & graph, int width, int height){ //quizás una referencia a la lista de aristas, no sé
+vector<vector<int>> algoritmo(double k, int n, int estructura, Graph & graph, int width, int height){ //quizás una referencia a la lista de aristas, no sé
 	/*
 	El parámetro estructura determina cómo se implementa la estructura disjoint set:
 	0-> Arreglo de representación
@@ -76,11 +76,12 @@ vector<vector<int>> algoritmo(int k, int n, int estructura, Graph & graph, int w
 	infoComponentes info = inicializarinfoComponentes(n);
 
 	int cont = 0;
+	//esta de menor a mayor, por eso hay tantos ceros
 	for(int i = 0; i < listaAristas.size(); i++){
 		cont = cont + 1;
 		if(cont % 1000 == 0)
 		{
-			cout<<cont<<endl;
+			//cout<<cont<<endl;
 		}
 		tuple<int, int, double> elem = listaAristas[i];
 		int v1 = get<0>(elem);
@@ -93,9 +94,11 @@ vector<vector<int>> algoritmo(int k, int n, int estructura, Graph & graph, int w
 			continue;
 
 		//cout<<"for2"<<endl;
-		int w = get<2>(elem);
-		int MinC1 = get<1>(info[c1]) + k/get<0>(info[c1]);
-		int MinC2 = get<1>(info[c2]) + k/get<0>(info[c2]);
+		double w = get<2>(elem);
+		//cout<<w<<endl;
+		double MinC1 = 1.0* get<1>(info[c1]) + k/ (1.0 *get<0>(info[c1]));
+		double MinC2 = 1.0* get<1>(info[c2]) + k/(1.0*get<0>(info[c2]));
+		
 		if(w <= MinC1 && w <= MinC2){
 			//cout<<"for3"<<endl;
 			//en este caso debemos unir las componentes.
@@ -109,10 +112,10 @@ vector<vector<int>> algoritmo(int k, int n, int estructura, Graph & graph, int w
 	}
 	
 	vector<vector<int>> res;
-	for(int i = 0; i < width; i++){
+	for(int i = 0; i < height; i++){
 		//cout<<"for4"<<endl;
 		vector<int> fila;
-		for(int j = 0; j < height; j++){
+		for(int j = 0; j < width; j++){
  			fila.push_back(disjset.find(i*width + j, estructura));
 		}
 		res.push_back(fila);
@@ -133,14 +136,28 @@ int main()
 	cout<<"hola1"<<endl;*/
 
 	//HACK
-	int width = 321;
-	int height = 250;
+	int width = 40;
+	int height = 40;
 
 	vector<vector<int>> image = imageFromFile("../images/hombre_recortado.txt");
 
-	Graph graph = converterEuclidean(image, width, height);
+	Graph graph = converter8neighbors(image, width, height);
 
-	vector<vector<int>> result = algoritmo(4, graph.getAmountEdges(), 0, graph, width, height);
+	double k = 20.0;
+	if(width*height >= 10000)
+	{
+		k = 150.0;
+	}
+	else
+	{
+		if(width*height >= 60000)
+		{
+			k = 300.0;
+		}
+	}
+
+	k = 10.0;
+	vector<vector<int>> result = algoritmo(k, graph.getAmountEdges(), 0, graph, width, height);
 	for(auto vec : result)
 	{
 		bool first = true;

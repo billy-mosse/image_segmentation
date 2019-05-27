@@ -11,8 +11,12 @@ void addIfValid(Graph & graph, int src_i, int src_j, int target_i,
 		int target = target_i*width + target_j;
 		int intensity_src = image.at(src_i).at(src_j);
 		int intensity_target = image.at(target_i).at(target_j);
-		int w = abs(intensity_src - intensity_target);
 
+		//cout<<intensity_src<<endl;
+		//cout<<intensity_target<<endl;
+		int w = abs(intensity_src - intensity_target);
+		//cout<<w<<endl;
+		//cout<<"___"<<endl;
 		graph.addEdge(src, target, w);
 	}
 }
@@ -32,11 +36,13 @@ Graph converter8neighbors(vector<vector<int> > & image, int width, int height){
 	//graph.showGraphEdges();
 	//cout<<"_________________" << endl;
 	
-	for(int i = 0; i < width; i++)
+	for(int i = 0; i < height; i++)
 	{
-		for(int j = 0; j < height; j++)
+		for(int j = 0; j < width; j++)
 		{
 			//chequear
+			//cout<<i<<","<<j<<endl;
+			//cout<<image.size()<<endl;
 			addIfValid(graph, i, j, i-1, j, image, width);
 			addIfValid(graph, i, j, i-1, j-1, image, width);
 			addIfValid(graph, i, j, i, j-1, image, width);
@@ -112,33 +118,25 @@ Graph converterEuclidean(vector<vector<int> > & image, int width, int height){
 	int n = width*height;
 	Graph graph(n);
 
-	cout<<"hola..."<<endl;
-
-	for(int i = 0; i < width; i++)
+	int cont = 0;
+	for(int i = 0; i < height; i++)
 	{
-		for(int j = 0; j < height; j++)
+		for(int j = 0; j < width; j++)
 		{
+
 			vector<edge> vecinos = addNeighbors(image, width,
 				height, i, j, k, max_distance);
-			if((i+j) % 1000 == 0)
-			{
-				cout<<i+j<<endl;
-				cout<<vecinos.size()<<endl;
-				cout<<graph.getEdges().size()<<endl;
-			}
+			
+			cont = cont +1;
 			for(auto new_edge: vecinos)
-			{				
-
-				cout<<"hola"<<endl;
+			{
 				//cout<< get<0>(edge)<< endl;
 				//cout<< get<1>(edge)<< endl;
 				graph.addEdgeIfNotAlready(get<0>(new_edge), get<1>(new_edge), get<2>(new_edge)); 
 			}
 		}
 	}
-	cout<<"ordenando..."<<endl;
 	graph.ordenar();
-	cout<<"ordenado"<<endl;
 
 	return graph;
 }

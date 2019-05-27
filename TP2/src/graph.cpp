@@ -37,7 +37,13 @@ const neighborhood Graph::getNeighbors(int src){
 void Graph::addEdge(int src, int dst, double w){
 	validateVertices(src, dst);
 
-	edges.push_back(make_tuple(src, dst, w));
+	//cout<<w<<endl;
+	//cout<<"about to add..."<<endl;
+
+	tuple<int, int, double> toAdd = make_tuple(src, dst, w);
+	//cout<<get<2>(toAdd)<<" edge"<<endl;
+
+	edges.push_back(toAdd);
 
 }
 
@@ -55,19 +61,14 @@ void Graph::addEdgeIfNotAlready(int src, int dst, double w){
 	//cout << dst << endl;
 	//cout << w << endl;
 	//cout << n << endl;
-	cout<<"hola2"<<endl;
 
 	validateVertices(src, dst);
-
-	cout<<"hola3"<<endl;
 
 	bool found = false;
 	edge new_edge = make_tuple(src, dst, w);
 
-	cout<<edges.size()<<endl;
 	for(edge an_edge : edges)
 	{
-		cout<<get<0>(an_edge)<<endl;
 
 		if((get<0>(an_edge) == get<0>(new_edge))
 		 && (get<1>(an_edge) == get<1>(new_edge)))
@@ -79,7 +80,7 @@ void Graph::addEdgeIfNotAlready(int src, int dst, double w){
 		 && (get<1>(an_edge) == get<0>(new_edge)))
 		{
 			found=true;
-		}		
+		}
 	}
 	
 	if(found==false)
