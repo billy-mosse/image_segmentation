@@ -54,7 +54,7 @@ infoComponentes inicializarinfoComponentes(int n){ //Acá hay una duda, cómo se
 }
 
 
-vector<vector<int>> algoritmo(int k, int n, int estructura, Graph graph){ //quizás una referencia a la lista de aristas, no sé
+vector<vector<int>> algoritmo(int k, int n, int estructura, Graph & graph, int width, int height){ //quizás una referencia a la lista de aristas, no sé
 	/*
 	El parámetro estructura determina cómo se implementa la estructura disjoint set:
 	0-> Arreglo de representación
@@ -69,50 +69,51 @@ vector<vector<int>> algoritmo(int k, int n, int estructura, Graph graph){ //quiz
 
 	listaAristas = graph.getEdges();
 
-	DisjointSet disjset;
+	//estan ordenados
 
-	if(estructura == 0){
-		ArregloRep disjset(n);
-	} else if (estructura == 1){
-		ArbolRep disjset(n);
-	} else {
-		ArbolComp disjset(n); //HAY QUE VER EL TEMA DEL SCOPE Y LAS DEPENDENCIAS ACÁ
-	}
-
+	DisjointSet disjset(n, estructura);
 
 	infoComponentes info = inicializarinfoComponentes(n);
 
+	int cont = 0;
 	for(int i = 0; i < listaAristas.size(); i++){
+		cont = cont + 1;
+		if(cont % 1000 == 0)
+		{
+			cout<<cont<<endl;
+		}
 		tuple<int, int, double> elem = listaAristas[i];
 		int v1 = get<0>(elem);
 		int v2 = get<1>(elem);
-		int c1 = disjset.find(v1); //Acá find es algún find de union find.
-		int c2 = disjset.find(v2);
+		int c1 = disjset.find(v1, estructura); //Acá find es algún find de union find.
+		int c2 = disjset.find(v2, estructura);
+		//cout<<"for"<<endl;
+
 		if(c1 == c2)
 			continue;
+
+		//cout<<"for2"<<endl;
 		int w = get<2>(elem);
 		int MinC1 = get<1>(info[c1]) + k/get<0>(info[c1]);
 		int MinC2 = get<1>(info[c2]) + k/get<0>(info[c2]);
 		if(w <= MinC1 && w <= MinC2){
+			//cout<<"for3"<<endl;
 			//en este caso debemos unir las componentes.
 			get<0>(info[c1]) += get<0>(info[c2]);
 			get<0>(info[c2]) = get<0>(info[c1]);// la componente en
 			//que queden tras el unite tendrá el tamaño de la nueva (suma de ambas)
 			get<1>(info[c2]) = w;
 			get<1>(info[c1]) = w; //la componente en que queden tendrá a w como arista de máximo peso.
-			disjset.unite(c1, c2); //con la estructura unite.
+			disjset.unite(c1, c2, estructura); //con la estructura unite.
 		}
 	}
 	
-	//devolve la bolsa
-	int width = -1;
-	int height = -1;
-
 	vector<vector<int>> res;
 	for(int i = 0; i < width; i++){
+		//cout<<"for4"<<endl;
 		vector<int> fila;
 		for(int j = 0; j < height; j++){
- 			fila.push_back(disjset.find(i*width + j));
+ 			fila.push_back(disjset.find(i*width + j, estructura));
 		}
 		res.push_back(fila);
 	}
@@ -122,16 +123,38 @@ vector<vector<int>> algoritmo(int k, int n, int estructura, Graph graph){ //quiz
 
 int main()
 {
-	int width;
+
+	/*int width;
     int height;
     cin >> width;
     cin >> height;
 
-	vector<vector<int>> image = imageFromFile("image1.txt");
-	
-	Graph graph = converter8neighbors(image, width, height);
 
-	vector<vector<int>> result = algoritmo(graph.getAmountNodes(), graph.getAmountEdges(), 0, graph);
+	cout<<"hola1"<<endl;*/
+
+	//HACK
+	int width = 321;
+	int height = 250;
+
+	vector<vector<int>> image = imageFromFile("../images/hombre_recortado.txt");
+
+	Graph graph = converterEuclidean(image, width, height);
+
+	vector<vector<int>> result = algoritmo(4, graph.getAmountEdges(), 0, graph, width, height);
+	for(auto vec : result)
+	{
+		bool first = true;
+		for(auto elt : vec)
+		{
+			if(!first)
+				cout<<" ";
+
+			cout<<elt;
+
+			first=false;
+		}
+		cout<<endl;
+	}
 
 	return 0;
 }

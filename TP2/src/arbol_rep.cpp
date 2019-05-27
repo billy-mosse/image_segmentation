@@ -10,6 +10,11 @@ ArbolRep::ArbolRep(int n)
 
 }
 
+ArbolRep::ArbolRep()
+{
+
+}
+
 //invariante, que en la raíz tenga en valor negativo la cantidad de elementos
 //que hay en el arbol (empieza en -1)
 //La idea es usar el tamaño para agregar siempre el árbol más chico al más grande.

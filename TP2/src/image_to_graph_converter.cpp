@@ -2,7 +2,7 @@
 #include "image_to_graph_converter.h"
 
 void addIfValid(Graph & graph, int src_i, int src_j, int target_i,
- int target_j, vector<vector<int> > & image, int width, int n)
+ int target_j, vector<vector<int> > & image, int width)
 {
 	int src = src_i * width + src_j;
 	
@@ -12,6 +12,7 @@ void addIfValid(Graph & graph, int src_i, int src_j, int target_i,
 		int intensity_src = image.at(src_i).at(src_j);
 		int intensity_target = image.at(target_i).at(target_j);
 		int w = abs(intensity_src - intensity_target);
+
 		graph.addEdge(src, target, w);
 	}
 }
@@ -22,6 +23,8 @@ Graph converter8neighbors(vector<vector<int> > & image, int width, int height){
 	//El pixel (i,j) se representa con el id i*width + j
 	
 	int n = width*height;
+
+
 	Graph graph(n);
 	
 	//graph.addEdge(1,1,1);
@@ -34,18 +37,18 @@ Graph converter8neighbors(vector<vector<int> > & image, int width, int height){
 		for(int j = 0; j < height; j++)
 		{
 			//chequear
-			addIfValid(graph, i, j, i-1, j, image, width, n);
-			addIfValid(graph, i, j, i-1, j-1, image, width, n);
-			addIfValid(graph, i, j, i, j-1, image, width, n);
-			addIfValid(graph, i, j, i-1, j+1, image, width, n);
+			addIfValid(graph, i, j, i-1, j, image, width);
+			addIfValid(graph, i, j, i-1, j-1, image, width);
+			addIfValid(graph, i, j, i, j-1, image, width);
+			addIfValid(graph, i, j, i-1, j+1, image, width);
 
 			//graph.showGraphEdges();
 		}
 	}
-	cout << "Ordenando..." << endl;
+	//cout << "Ordenando..." << endl;
 
 	graph.ordenar();
-	cout << "Ordenado." << endl;
+	//cout << "Ordenado." << endl;
 	return graph;
 }
 
@@ -76,6 +79,7 @@ vector<tuple<int, int, double>> addNeighbors(vector<vector<int> > & image, int w
 
 			double w = euclidean_distance(src_i, src_j, intensity(image, src_i, src_j),
 				i, j, intensity(image, i, j));
+
 
 			if(w < get<2>(res[0]))
 			{
@@ -108,19 +112,33 @@ Graph converterEuclidean(vector<vector<int> > & image, int width, int height){
 	int n = width*height;
 	Graph graph(n);
 
+	cout<<"hola..."<<endl;
+
 	for(int i = 0; i < width; i++)
 	{
 		for(int j = 0; j < height; j++)
 		{
 			vector<edge> vecinos = addNeighbors(image, width,
 				height, i, j, k, max_distance);
-			
-			for(auto edge: vecinos)
+			if((i+j) % 1000 == 0)
+			{
+				cout<<i+j<<endl;
+				cout<<vecinos.size()<<endl;
+				cout<<graph.getEdges().size()<<endl;
+			}
+			for(auto new_edge: vecinos)
 			{				
-				graph.addEdgeIfNotAlready(get<0>(edge), get<1>(edge), get<2>(edge)); 
+
+				cout<<"hola"<<endl;
+				//cout<< get<0>(edge)<< endl;
+				//cout<< get<1>(edge)<< endl;
+				graph.addEdgeIfNotAlready(get<0>(new_edge), get<1>(new_edge), get<2>(new_edge)); 
 			}
 		}
-	}	
+	}
+	cout<<"ordenando..."<<endl;
 	graph.ordenar();
+	cout<<"ordenado"<<endl;
+
 	return graph;
 }

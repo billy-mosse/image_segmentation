@@ -15,6 +15,12 @@ ArregloRep::ArregloRep(int n)
 	}
 }
 
+ArregloRep::ArregloRep()
+{
+
+}
+
+
 
 int ArregloRep::find(int i)
 {
