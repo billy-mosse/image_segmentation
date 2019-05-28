@@ -1,0 +1,6 @@
+Initializing nautilus-dropbox 2015.10.28
+Nautilus-Share-Message: 18:15:48.611: Called "net usershare info" but it failed: Failed to execute child process “net” (No such file or directory)
+
+(nautilus:16138): GLib-GObject-WARNING **: 20:06:35.561: invalid uninstantiatable type '(null)' in cast to 'GObject'
+
+(nautilus:16138): GLib-GObject-CRITICAL **: 20:06:35.561: g_object_notify: assertion 'G_IS_OBJECT (object)' failed
