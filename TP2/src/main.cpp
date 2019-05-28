@@ -37,7 +37,7 @@ using namespace std;
 vector<tuple<int, int, double>> listaAristas; // asumo que esta es la
 //lista de aristas que mencioné.
 
-typedef vector<tuple<int, int>> infoComponentes;
+typedef vector<tuple<int, double>> infoComponentes;
 //Infocomponentes almacena dos valores. Cada índice identifica una componente.
 //De las componentes que todavía existen, infoComponentes almacena en su primer valor
 //su tamaño, y en el segundo elemento almacena Int(C) -es decir, maximo peso en su AGM.
@@ -75,13 +75,14 @@ vector<vector<int>> algoritmo(double k, int n, int estructura, Graph & graph, in
 
 	infoComponentes info = inicializarinfoComponentes(n);
 
+	//k = 330;
 	int cont = 0;
 	//esta de menor a mayor, por eso hay tantos ceros
 	for(int i = 0; i < listaAristas.size(); i++){
 		cont = cont + 1;
-		if(cont % 1000 == 0)
+		if(cont % 10000 == 0)
 		{
-			//cout<<cont<<endl;
+			cout<<cont<<endl;
 		}
 		tuple<int, int, double> elem = listaAristas[i];
 		int v1 = get<0>(elem);
@@ -113,7 +114,6 @@ vector<vector<int>> algoritmo(double k, int n, int estructura, Graph & graph, in
 	
 	vector<vector<int>> res;
 	for(int i = 0; i < height; i++){
-		//cout<<"for4"<<endl;
 		vector<int> fila;
 		for(int j = 0; j < width; j++){
  			fila.push_back(disjset.find(i*width + j, estructura));
@@ -136,17 +136,17 @@ int main()
 	cout<<"hola1"<<endl;*/
 
 	//HACK
-	int width = 40;
-	int height = 40;
+	int width = 321;
+	int height = 481;
 
-	vector<vector<int>> image = imageFromFile("../images/hombre_recortado.txt");
+	vector<vector<int>> image = imageFromFile("../images/hombre_blur.txt");
 
 	Graph graph = converter8neighbors(image, width, height);
 
 	double k = 20.0;
 	if(width*height >= 10000)
 	{
-		k = 150.0;
+		k = 200.0;
 	}
 	else
 	{
@@ -156,7 +156,7 @@ int main()
 		}
 	}
 
-	k = 10.0;
+	cout<<k<<endl;
 	vector<vector<int>> result = algoritmo(k, graph.getAmountEdges(), 0, graph, width, height);
 	for(auto vec : result)
 	{
