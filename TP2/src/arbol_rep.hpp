@@ -1,17 +1,17 @@
 #pragma once
 
 #include <vector>
-#include "disjoint_set.hpp"
 
 using namespace std;
 
 
-class ArbolRep: public DisjointSet
+class ArbolRep
 {
 	vector<int> arbolrep;
 public:
 	
 	ArbolRep(int n);
+	ArbolRep();
 	int find(int i);
 	void unite(int A, int B);
 };

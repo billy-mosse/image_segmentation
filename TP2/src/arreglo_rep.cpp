@@ -29,7 +29,16 @@ int ArregloRep::find(int i)
 
 void ArregloRep::unite(int A, int B)
 {
-	for(int i = 0; i < arreglorep.size(); i++){
-		if(arreglorep[i] == A){arreglorep[i] = B;}
+	if(A >= B)
+	{
+		for(int i = 0; i < arreglorep.size(); i++){
+			if(arreglorep[i] == A){arreglorep[i] = B;}
+		}
+	}
+	else
+	{
+		for(int i = 0; i < arreglorep.size(); i++){
+			if(arreglorep[i] == B){arreglorep[i] = A;}
+		}	
 	}
 }

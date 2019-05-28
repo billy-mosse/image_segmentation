@@ -8,8 +8,6 @@ DisjointSet::DisjointSet(int n, int estructura)
 	if(estructura == 0)
 	{
 		arreglorep = ArregloRep(n);
-
-		ArregloRep a(n);
 	}
 	else
 	{

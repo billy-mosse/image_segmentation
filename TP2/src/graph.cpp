@@ -7,6 +7,10 @@ Graph::Graph(int N){
     vector<tuple<int, int, double> > edges;
 }
 
+Graph::Graph()
+{
+	
+}
 
 Graph::Graph(int N, bool digraph){
 	n = N;

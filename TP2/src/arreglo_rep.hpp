@@ -2,17 +2,17 @@
 #define _arreglo_rep
 
 #include <vector>
-#include "disjoint_set.hpp"
 
 using namespace std;
 
 
-class ArregloRep: public DisjointSet
+class ArregloRep
 {
 	vector<int> arreglorep;
 public:
 	
 	ArregloRep(int n);
+	ArregloRep();
 	int find(int i);
 	void unite(int A, int B);
 };
