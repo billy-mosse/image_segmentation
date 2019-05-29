@@ -1,8 +1,9 @@
 #include <cmath>
+#include <algorithm>    // std::min
 #include "image_to_graph_converter.h"
 
 void addIfValid(Graph & graph, int src_i, int src_j, int target_i,
- int target_j, vector<vector<int> > & image, int width)
+ int target_j, const vector<vector<int> > & image, int width)
 {
 	int src = src_i * width + src_j;
 	
@@ -23,12 +24,13 @@ void addIfValid(Graph & graph, int src_i, int src_j, int target_i,
 
 
 //TODO no hacen falta realmente width y height
-Graph converter8neighbors(vector<vector<int> > & image, int width, int height){
+Graph converter8neighbors(const vector<vector<int> > & image, int width, int height){
 	//El pixel (i,j) se representa con el id i*width + j
 	
 	int n = width*height;
 
 
+	//cout<<"hola"<<endl;
 	Graph graph(n);
 	
 	//graph.addEdge(1,1,1);
@@ -36,6 +38,7 @@ Graph converter8neighbors(vector<vector<int> > & image, int width, int height){
 	//graph.showGraphEdges();
 	//cout<<"_________________" << endl;
 	
+	//cout<<image.size()<<endl;
 	for(int i = 0; i < height; i++)
 	{
 		for(int j = 0; j < width; j++)
@@ -53,7 +56,7 @@ Graph converter8neighbors(vector<vector<int> > & image, int width, int height){
 	}
 	//cout << "Ordenando..." << endl;
 
-	graph.ordenar();
+	graph.order();
 	//cout << "Ordenado." << endl;
 	return graph;
 }
@@ -65,20 +68,20 @@ double euclidean_distance(int src_i, int src_j, int src_intensity, int target_i,
 }
 
 
-int intensity(vector<vector<int> > & image, int p_i, int p_j)
+int intensity(const vector<vector<int> > & image, int p_i, int p_j)
 {
 	return image.at(p_i).at(p_j);
 }
 
-vector<tuple<int, int, double>> addNeighbors(vector<vector<int> > & image, int width, 
+vector<tuple<int, int, double>> addNeighbors(const vector<vector<int> > & image, int width, 
 	int height, int src_i, int src_j, int k, double max_distance)
 {
 	int src = src_i * width + src_j;
 	//lista ordenada de aristas, de menor a mayor
 	vector<tuple<int, int, double>> res(k, make_tuple(-1, -1, max_distance)); //LLENARLO CON K ELEMENTOS QUE PESEN MUCHO
 
-	for(int i = 0; i < width; i++){
-		for(int j = 0; j < height; j++)
+	for(int i = 0; i < height; i++){
+		for(int j = 0; j < width; j++)
 		{
 			if(i==src_i && j == src_j)
 				continue;
@@ -110,20 +113,21 @@ vector<tuple<int, int, double>> addNeighbors(vector<vector<int> > & image, int w
 }
 
 int amount_neighbors = 4; //que sea parametro del programa
-Graph converterEuclidean(vector<vector<int> > & image, int width, int height){
+Graph converterEuclidean(const vector<vector<int> > & image, int width, int height){
 
-	int k = 4;//PARAMETRO FIJO QUE DEBERIAMOS CAMBIAR PARA LOS EXPERIMENTOS
+	int k = std::min(4, int(image.size()-1));//PARAMETRO FIJO QUE DEBERIAMOS CAMBIAR PARA LOS EXPERIMENTOS
 	double max_distance = width + height + 255;
 
 	int n = width*height;
 	Graph graph(n);
 
 	int cont = 0;
+	//cout<<image.size()<<endl;
+
 	for(int i = 0; i < height; i++)
 	{
 		for(int j = 0; j < width; j++)
 		{
-
 			vector<edge> vecinos = addNeighbors(image, width,
 				height, i, j, k, max_distance);
 			
@@ -136,7 +140,7 @@ Graph converterEuclidean(vector<vector<int> > & image, int width, int height){
 			}
 		}
 	}
-	graph.ordenar();
+	graph.order();
 
 	return graph;
 }

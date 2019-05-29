@@ -25,7 +25,7 @@ vector<int> parseInputFile(char* inputPath){
 }
 
 //TODO int deberia ser unsigned int para los pixels
-vector<vector<int> > separateValues(vector<int> numbers, int width, int height){
+vector<vector<int> > separateValues(const vector<int> & numbers, int width, int height){
     vector<vector< int> > rows;
 
 
@@ -52,20 +52,32 @@ vector<vector<int> > imageFromFile(char* inputPath){
     int width = numbers[0];
     int height = numbers[1];
     vector<vector<int> > image = separateValues(numbers, width, height);
+    
     return image;
 }
 
-
-vector<vector<int> > imageFromInput(int width, int height){
-
-
+vector<int> numbersFromInput()
+{
     int n;
     vector<int> numbers;
-    while (cin >> n) {
+    int width;
+    int height;
+    cin >> width;
+    cin >> height;
+    numbers.push_back(width);
+    numbers.push_back(height);
+    for(int i = 0; i < width*height; i++){
+        cin >> n;
         numbers.push_back(n);
     }
+    return numbers;
+}
+
+vector<vector<int> > imageFromInput(vector<int> numbers){
 
     vector<vector<int> > image;
+    int width = numbers[0];
+    int height = numbers[1];
 
     for(int i = 0; i < height; i++)
     {
@@ -74,7 +86,6 @@ vector<vector<int> > imageFromInput(int width, int height){
         for(int j = 0; j < width; j++)
         {
             int p = numbers[imagePosStart + j];
-            //cout<<p<<endl;
             row.push_back(p);
         }
         image.push_back(row);

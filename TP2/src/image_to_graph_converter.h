@@ -9,8 +9,8 @@
 
 using namespace std;
 
-Graph converter8neighbors(vector<vector<int> > & image, int width, int height);
+Graph converter8neighbors(const vector<vector<int> > & image, int width, int height);
 
-Graph converterEuclidean(vector<vector<int> > & image, int width, int height);
+Graph converterEuclidean(const vector<vector<int> > & image, int width, int height);
 
 #endif

@@ -12,6 +12,7 @@
 #include "graph.h"
 #include "image_to_graph_converter.h"
 #include "inputHandler.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -124,7 +125,7 @@ void testConverterEuclidean()
     //1+1+2+4+3+2+4+3 = 20
 
     //graph.showGraphEdges();
-    //assert(graph.getSizeEdges() == 20);
+    assert(graph.getSizeEdges() == 22);
 
     //graph.showGraphEdges();
 
@@ -157,6 +158,23 @@ void testInputFile()
     }    
 }
 
+
+void regressionTest1()
+{
+    vector<vector<int>> image = imageFromFile("../images/testcuadrados240x40.txt");
+
+    Graph graph = converter8neighbors(image, 40, 40);
+
+    vector<vector<int>> ret = algoritmo(20.0, 1600, 0, graph, 40, 40);
+    for(auto vec : ret)
+    {
+        for(auto elt : vec)
+        {
+            //cout<<elt<<endl;
+        }
+    }
+}
+
 int main(){
     testArregloRep();
     testArbolRep();
@@ -165,5 +183,6 @@ int main(){
     testConverter8neighbors();
     testConverterEuclidean();
     testInputFile();
+    regressionTest1();
 	cout<<"all ok"<<endl;
 }
