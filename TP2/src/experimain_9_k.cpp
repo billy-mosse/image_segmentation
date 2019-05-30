@@ -61,39 +61,40 @@ int main(int argc, char *argv[])
 	//HACK
 	int width;
 	int height;
+
+	width = 80;
+	height = 150;
+
 	double kkk = 0.0;
+	auto start = std::chrono::system_clock::now();
+
+	vector<vector<int>> image = imageFromFile("../images/test150x150.txt");
+
+	Graph graph;
+
+	if(use8Neighbors == 1)
+		graph = converter8neighbors(image, width, height);
+	else
+		graph = converterEuclidean(image, width, height);
+
 
 	cerr << "use8neighors,structure,k,index,load_image,load_graph,process,whole"<<endl;
 	for(int use8Neighbors = 0; use8Neighbors <= 0 ; use8Neighbors++)
 	{
-		for(int kk = 10; kk<= 50; kk++)
+		for(int kk = 0; kk<= 30; kk++)
 		{
-
-			kkk = kkk + 10;
+			kkk = kkk + 1;
 
 			for(int j = 1; j <= 10; j++)
 			{
 				for(int structure_exp = 0; structure_exp <=2; structure_exp++)
 				{
 
-					auto start = std::chrono::system_clock::now();
-
-					width = 40;
-					height = 40;
-					
-
-					vector<vector<int>> image = imageFromFile("../images/testRectangulo80x20.txt");
 
 					auto end = std::chrono::system_clock::now();
 					auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 				    cerr << use8Neighbors << "," << structure_exp << "," << kkk << "," << j << "," << elapsed.count() << ",";
 
-					Graph graph;
-
-					if(use8Neighbors == 1)
-						graph = converter8neighbors(image, width, height);
-					else
-						graph = converterEuclidean(image, width, height);
 
 
 					auto end_2 = std::chrono::system_clock::now();

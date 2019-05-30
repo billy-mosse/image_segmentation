@@ -13,22 +13,22 @@ using namespace std;
 //y su tamaño (el tamaño, salvo en el arreglo de representación, ya lo tengo almacenado)
 //en la raíz del árbol.
 
-vector<tuple<int, int, double>> listaAristas; // asumo que esta es la
-//lista de aristas que mencioné.
 
 int main()
 {
+	cerr<<"hola"<<endl;
+	cout<<"hola"<<endl;
 
 	vector<int> numbers = numbersFromInput();
 
 	int width = numbers[0];
 	int height = numbers[1];
-	
+
 	vector<vector<int>> image = imageFromInput(numbers);
 
 	Graph graph = converter8neighbors(image, width, height);
 
-	double k = 20.0;
+	double k = 50.0;
 	if(width*height >= 10000)
 	{
 		k = 200.0;
