@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+//#include <set>
 #include <utility>
 #include <cassert>
 #include <tuple>
@@ -20,6 +21,8 @@ class Graph {
 
     //an edge is a vector (origin, target, weight)
     vector<edge> edges;
+    //set<tuple<int, int> > edges_set;
+
 
     unordered_map<int, neighborhood > neighbors;
     int n;

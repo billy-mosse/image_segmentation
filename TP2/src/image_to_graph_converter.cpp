@@ -136,7 +136,7 @@ Graph converterEuclidean(const vector<vector<int> > & image, int width, int heig
 			{
 				//cout<< get<0>(edge)<< endl;
 				//cout<< get<1>(edge)<< endl;
-				graph.addEdgeIfNotAlready(get<0>(new_edge), get<1>(new_edge), get<2>(new_edge)); 
+				graph.addEdgeIfNotAlready(get<0>(new_edge), get<1>(new_edge), get<2>(new_edge));
 			}
 		}
 	}

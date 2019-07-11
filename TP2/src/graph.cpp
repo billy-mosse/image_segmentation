@@ -4,6 +4,7 @@
 Graph::Graph(int N){
 	n = N;
     vector<tuple<int, int, double> > edges;
+    //set<tuple<int, int> > edges_set;
 }
 
 Graph::Graph()
@@ -45,12 +46,13 @@ void Graph::addEdgeIfNotAlready(int src, int dst, double w){
 
 	validateVertices(src, dst);
 
-	bool found = false;
 	edge new_edge = make_tuple(src, dst, w);
+	tuple<int, int> new_edge_without_weight = make_tuple(src, dst);
+	//tuple<int, int> new_edge_without_weight_swapped = make_tuple(src, dst);
 
+	bool found=false;
 	for(edge an_edge : edges)
 	{
-
 		if((get<0>(an_edge) == get<0>(new_edge))
 		 && (get<1>(an_edge) == get<1>(new_edge)))
 		{
@@ -63,10 +65,13 @@ void Graph::addEdgeIfNotAlready(int src, int dst, double w){
 			found=true;
 		}
 	}
-	
-	if(found==false)
+
+	//edges_set.find(new_edge_without_weight) == edges_set.end()
+	//&& edges_set.find(new_edge_without_weight_swapped) == edges_set.end()
+	if(!found)
 	{
-		edges.push_back(make_tuple(src, dst, w));
+		edges.push_back(new_edge);
+		//edges_set.insert(new_edge_without_weight);
 	}
 }
 
