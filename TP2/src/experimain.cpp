@@ -47,32 +47,16 @@ int main(int argc, char *argv[])
 {
 	auto start = std::chrono::system_clock::now();
 
-	//int use8Neighbors =  stoi(argv[1]);
-
-	//int structureType = stoi(argv[2]);
-
-	/*int width;
-    int height;
-    cin >> width;
-    cin >> height;
-
-
-	cout<<"hola1"<<endl;*/
-
 	//HACK
-	int width;
-	int height;
-	string path =  argv[1];
-
-	int use8Neighbors =  stoi(argv[2]);
-
-	//int use8neighbors =  0;
-
-	width = 256;
-	height = 256;
+	int width = stoi(argv[1]);
+	int height = stoi(argv[2]);
+	string file =  argv[3];
+	int use8Neighbors =  stoi(argv[4]);
+    double k = atof(argv[5]);
 	
-	string filename = "../images/" + path;
+	int structure = stoi(argv[6]);
 
+	string filename = "../images/" + file;
 
     int n = filename.length(); 
 
@@ -85,11 +69,9 @@ int main(int argc, char *argv[])
 
 	vector<vector<int>> image = imageFromFile(char_array);
 
-	//auto end = std::chrono::system_clock::now();
-	//auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-    //cerr << kk << "," << use8Neighbors << "," << structure_exp << "," << i << "," << j << "," << elapsed.count() << ",";
-
-	double k = 50.0;
+	auto end = std::chrono::system_clock::now();
+	auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    cerr << filename << "," << width << "," << height << "," << k << "," << use8Neighbors << "," << structure << "," << elapsed.count() << ",";
 
 	Graph graph;
 
@@ -98,12 +80,13 @@ int main(int argc, char *argv[])
 	else
 		graph = converterEuclidean(image, width, height);
 
+	auto end_2 = std::chrono::system_clock::now();
+	elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end_2 - end);
+	cerr << elapsed.count() << ",";
 
-	//auto end_2 = std::chrono::system_clock::now();
-	//elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end_2 - end);
-	////cerr << elapsed.count() << ",";
+	vector<vector<int>> result = algoritmo(k, graph.getAmountEdges(), structure, graph, width, height);
 
-	vector<vector<int>> result = algoritmo(k, graph.getAmountEdges(), 2, graph, width, height);
+	auto end_2_prima = std::chrono::system_clock::now();
 
 	for(auto vec : result)
 	{
@@ -119,13 +102,15 @@ int main(int argc, char *argv[])
 		}
 		cout<<endl;
 	}
+	auto end_2_prima_prima = std::chrono::system_clock::now();
+	elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end_2_prima_prima - end_2_prima);
+	cerr << elapsed.count() << ",";
 
-
-	//auto end_3 = std::chrono::system_clock::now();
-	//elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end_3 - end_2);
-	//cerr << elapsed.count() << ",";
-	//elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end_3 - start);
-	//cerr << elapsed.count() << endl;
+	auto end_3 = std::chrono::system_clock::now();
+	elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end_3 - end_2);
+	cerr << elapsed.count() << ",";
+	elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end_3 - start);
+	cerr << elapsed.count() << endl;
 
 	return 0;
 }
